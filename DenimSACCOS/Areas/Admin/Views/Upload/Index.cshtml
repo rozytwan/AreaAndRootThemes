@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>File Upload here</h2>
+@using (Html.BeginForm("Upload", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{<input type="file" name="file" id="file">
+    @*<input type="file" id="ImageData" name="ImageData" value="ImageData" accept="image/*" />*@
+    <input type="submit" value="Upload">
+    @Html.ActionLink("Documents", "Downloads")
+ 
+}
+
+
+@*<h2>Image Upload here</h2>
+@using (Html.BeginForm("Uploads", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{@*<input type="file" name="file" id="file">
+ <input type="file" id="ImageData" name="ImageData" value="ImageData" accept="image/*" />
+    <input type="submit" value="Upload">
+    @Html.ActionLink("Documents", "Downloads")
+
+}*@

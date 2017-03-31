@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Uploadgal";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Upload Imgaes For Gallary</h2>
+
+
+@using (Html.BeginForm("UploadGallary", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{<input type="file" name="file" id="file" accept="image/*">
+    @*<input type="file" id="ImageData" name="ImageData" value="ImageData" accept="image/*" />*@
+    <input type="submit" value="Upload">
+    @Html.ActionLink("Documents", "DownloadGallary")
+
+}

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<DenimSACCOS.Models.Gallery>
+@{
+    ViewBag.Title = "Gallary";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Gallary</h2>
+
+<div class="container">
+    <div class="row gallery">
+        @{
+            int b = 0;
+        }
+        @foreach (var item in Model)
+        {
+            b++;
+
+            <a href="@Html.DisplayFor(modelItem => item.ImagePath)" class="gallery-image" data-gallery><img src='@Html.DisplayFor(modelItem => item.ImagePath)' class="img-responsive"></a>
+
+        }
+    </div>
+</div>

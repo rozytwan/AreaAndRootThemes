@@ -1,0 +1,60 @@
+﻿@model DenimSACCOS.Areas.Admin.Models.Email
+
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ContactUs</h2>
+
+@using (@Html.BeginForm("ContactUs", "Home", FormMethod.Post, new { @id = "form1", @enctype = "multipart/form-data" }))
+{
+    <div class="mail-body">
+
+        <form class="form-horizontal" method="get">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">To:</label>
+                <div class="col-sm-10"> <input type="text" name="To" class="form-control" placeholder="Enter your Email Here"></div>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Subject:</label>
+                <div class="col-sm-10"> <input type="text" name="Subject" class="form-control" placeholder="Enter Subject Here"></div>
+            </div>
+            <br />
+            <br />
+            <br />
+
+            @*@Html.TextBoxFor(m => m.Subject)*@
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Attachment:</label>
+
+                <input type="file" name="fileUploader" />
+            </div>
+        </form>
+
+        <div class="mail-text h-200">
+            <div class="summernote">
+
+
+                @Html.TextAreaFor(m => m.Body, new { @class = "form-control", style = "width: 840px; height: 139px;" })
+
+                <br />
+                <br />
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="mail-body text-right tooltip-demo">
+            @Html.ValidationSummary()
+            <input type="submit" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" value="Send" />
+
+
+        </div>
+
+    </div>
+}
+

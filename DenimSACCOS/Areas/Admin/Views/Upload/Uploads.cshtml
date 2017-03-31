@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Uploads";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>Upload Images For Slider</h2>
+@*@using (Html.BeginForm("UploadImage", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+  
+    <input type="file" id="ImageData" name="ImageData" value="ImageData" accept="image/*" />
+    <input type="submit" value="Upload">
+    @Html.ActionLink("Documents", "Downloads")
+
+}*@
+
+@using (Html.BeginForm("UploadImage", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{<input type="file" name="file" id="file" accept="image/*">
+    @*<input type="file" id="ImageData" name="ImageData" value="ImageData" accept="image/*" />*@
+    <input type="submit" value="Upload">
+    @Html.ActionLink("Documents", "DownloadImage")
+
+}

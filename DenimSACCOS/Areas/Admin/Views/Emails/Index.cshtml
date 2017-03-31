@@ -1,0 +1,59 @@
+﻿@model DenimSACCOS.Areas.Admin.Models.Email
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+@*@using (Html.BeginForm("SendMail", "Emails", FormMethod.Get))
+{
+    @Html.LabelFor(m => m.To)<br />
+    @Html.TextBoxFor(m => m.To)<br />
+
+    @Html.LabelFor(m => m.Subject)<br />
+        @Html.TextBoxFor(m => m.Subject)<br />
+
+
+        @Html.LabelFor(m => m.Body)<br />
+        @Html.TextAreaFor(m => m.Body)<br />
+        <button typ1e="submit" class="btn-success" name="send">Send</button>
+
+
+
+}*@
+<div class="col-sm-3">
+    </div>
+
+    @using (Html.BeginForm("SendMail", "Emails"))
+    {
+        
+            <div class="col-sm-4">
+            
+                        <h2>Compose</h2>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.To, null, new { id = "recepitant", placeholder = "Enter Recipitants", @class = "form-control" })<br />
+                            @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Subject, null, new { id = "subject", placeholder = "Enter Subject", @class = "form-control" })<br />
+                            @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                        </div>
+                @*<div class="form-group">
+                    <label class="col-sm-2 control-label">Attachment:</label>
+
+                    <input type="file" name="fileUploader" />
+                </div>*@
+                        <div class="form-group">
+                            @Html.TextAreaFor(model => model.Body, new { id = "Body", placeholder = "Drop Message", @class = "form-control" })<br />
+                            @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Send</button>
+                    </div>
+                 
+               
+            }
+
